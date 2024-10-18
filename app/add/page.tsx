@@ -1,5 +1,5 @@
 "use client"
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
 import Header from '../header';
 import { storage } from '../firebaseConfig';
@@ -53,7 +53,7 @@ function addenergidrik() {
     <div>
       <Header />
       <div className="flex flex-col items-center justify-center mt-10">
-        <form onSubmit={handleSubmit} className="flex flex-col space-y-4">
+        <div className="flex flex-col space-y-4">
           <input
             type="text"
             name="name"
@@ -104,10 +104,10 @@ function addenergidrik() {
                 />
               </div>
             )}
-          <button type="submit" className="p-2 bg-blue-500 text-white rounded hover:bg-blue-600">
+          <button onClick={handleSubmit} className="p-2 bg-blue-500 text-white rounded hover:bg-blue-600">
             Submit
           </button>
-        </form>
+        </div>
       </div>
     </div>
   );
