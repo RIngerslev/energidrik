@@ -43,8 +43,13 @@ function addenergidrik() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    addDataFirebase("drink", { name, taste, look, image: uploadedURL });
-    
+    console.log(name, taste, look, uploadedURL);
+    try {
+      await addDataFirebase("drink", { name, taste, look, image: uploadedURL });
+    } catch (error) {
+      console.error("Error adding data to Firebase:", error);
+      // You can also add additional error handling logic here, such as displaying an error message to the user
+    }
     // Efter succesfuld tilføjelse af drink, omdiriger til "/"
     router.push('/');
   };
