@@ -1,5 +1,5 @@
 "use client"
-import { useRouter } from 'next/navigation';
+import { useRouter } from 'next/router';
 import React, { useState } from 'react';
 import Header from '../header';
 import { storage } from '../firebaseConfig';
