@@ -2,10 +2,11 @@
 import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
 import Header from '../header';
-import { storage } from '../firebaseConfig';
+import { storage } from '../firebase/firebaseConfig';
 import Image from 'next/image';
 import {ref, uploadBytes, getDownloadURL} from 'firebase/storage';
-import { addDataFirebase } from '../firebase';
+import { addDataFirebase } from '../firebase/firebase';
+import BottomNavBar from '../bottomNavBar';
 
 function addenergidrik() {
   const [name, setName] = useState('');
@@ -55,9 +56,11 @@ function addenergidrik() {
   };
 
   return (
-    <div>
-      <Header />
-      <div className="flex flex-col items-center justify-center mt-10">
+    <div className='flex flex-col h-screen'>
+      <div className="h-[8%]">
+        <Header />
+      </div>
+      <div className="flex flex-col items-center justify-center h-[84%] mt-10">
         <div className="flex flex-col space-y-4">
           <input
             type="text"
@@ -113,6 +116,9 @@ function addenergidrik() {
             Submit
           </button>
         </div>
+      </div>
+      <div className="h-[8%]">
+        <BottomNavBar />
       </div>
     </div>
   );
