@@ -2,23 +2,10 @@
     "short_name": "FS",
     "name": "FuelScore",
     "description": "hello",
-    "start_url": "https://ringerslev.github.io/energidrik/",
+    "start_url": "/",
     "display": "standalone",
     "orientation": "portrait",
     "background_color": "#cc6900",
     "theme_color": "#000",
-    "icons": [
-      {
-        "purpose":"maskable",
-        "sizes":"512x512",
-        "src":"/favicon.ico",
-        "type":"image/png"
-        },
-        {
-          "purpose":"any",
-          "sizes":"512x512",
-          "src":"/favicon.ico",
-          "type":"image/png"
-        }
-    ]
+    "icons": []
   }
