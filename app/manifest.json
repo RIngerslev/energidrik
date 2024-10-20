@@ -1,8 +1,8 @@
 {
-    "short_name": "Ur Disc Friend",
-    "name": "Ur Disc Friend",
+    "short_name": "FS",
+    "name": "FuelScore",
     "description": "hello",
-    "start_url": "https://ringerslev.github.io/ur-disc-friend-native/",
+    "start_url": "https://ringerslev.github.io/energidrik/",
     "display": "standalone",
     "orientation": "portrait",
     "background_color": "#cc6900",
