@@ -1,24 +1,29 @@
 "use client"
 import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
-import Header from '../header';
+import Header from '../navigation/header';
 import { storage } from '../firebase/firebaseConfig';
 import Image from 'next/image';
-import {ref, uploadBytes, getDownloadURL} from 'firebase/storage';
+import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { addDataFirebase } from '../firebase/firebase';
-import BottomNavBar from '../bottomNavBar';
+import BottomNavBar from '../navigation/bottomNavBar';
+import LogoutButton from '../login/register/logoutButton';
 
 function addenergidrik() {
   const [name, setName] = useState('');
+  const [brand, setBrand] = useState('');
   const [taste, setTaste] = useState('');
   const [look, setLook] = useState('');
+  const [avg] = useState(taste);
+  const [yourRating] = useState(taste);
+  const [amountRating] = useState(1);
 
   const [file, setFile] = useState<File | null>(null);
   const [uploading, setUploading] = useState(false);
   const [uploadedURL, setUploadedURL] = useState<string | null>(null);
 
   const router = useRouter()
-  
+
   const handleFileChange = (e: any) => {
     console.log(e.target.files?.[0]);
     setFile(e.target.files?.[0] || null);
@@ -28,7 +33,7 @@ function addenergidrik() {
     if (!file) return;
     setUploading(true);
     const storageRef = ref(storage, `images/${file.name}`);
-    
+
     try {
       await uploadBytes(storageRef, file);
       const Url = await getDownloadURL(storageRef);
@@ -44,9 +49,9 @@ function addenergidrik() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    console.log(name, taste, look, uploadedURL);
+    console.log(brand, name, taste, look, uploadedURL);
     try {
-      await addDataFirebase("drink", { name, taste, look, image: uploadedURL });
+      await addDataFirebase("drink", { brand, name, avg, amountRating, yourRating, taste, look, image: uploadedURL });
     } catch (error) {
       console.error("Error adding data to Firebase:", error);
       // You can also add additional error handling logic here, such as displaying an error message to the user
@@ -57,11 +62,26 @@ function addenergidrik() {
 
   return (
     <div className='flex flex-col h-screen'>
-      <div className="h-[8%]">
-        <Header />
-      </div>
+      <Header />
       <div className="flex flex-col items-center justify-center h-[84%] mt-10">
         <div className="flex flex-col space-y-4">
+          <input
+            list='brands'
+            type="text"
+            name="brand"
+            placeholder="Brand"
+            value={name}
+            onChange={(e) => setBrand(e.target.value)}
+            className="p-2 border border-gray-300 rounded"
+            required
+          />
+          <datalist id="brands">
+            <option value="Monster" />
+            <option value="Redbull" />
+            <option value="Booster" />
+            <option value="Cult" />
+            <option value="Rockstar" />
+          </datalist>
           <input
             type="text"
             name="name"
@@ -100,26 +120,24 @@ function addenergidrik() {
             />
           </div>
           <button className="p-2 bg-blue-500 text-white rounded hover:bg-blue-600" onClick={handleUpload} disabled={uploading} >
-              {uploading ? 'Uploading...' : 'Upload billede'}
+            {uploading ? 'Uploading...' : 'Upload billede'}
           </button>
-            { uploadedURL && (
-              <div className='flex justify-center items-center mt-2'>
-                <Image
-                  src={uploadedURL}
-                  alt="Uploaded image"
-                  width={300}
-                  height={300}
-                />
-              </div>
-            )}
+          {uploadedURL && (
+            <div className='flex justify-center items-center mt-2'>
+              <Image
+                src={uploadedURL}
+                alt="Uploaded image"
+                width={300}
+                height={300}
+              />
+            </div>
+          )}
           <button onClick={handleSubmit} className="p-2 bg-blue-500 text-white rounded hover:bg-blue-600">
             Submit
           </button>
         </div>
       </div>
-      <div className="h-[8%]">
         <BottomNavBar />
-      </div>
     </div>
   );
 }

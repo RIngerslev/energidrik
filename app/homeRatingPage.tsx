@@ -20,15 +20,11 @@ function homeRatingPage() {
   }, []);
 
   return (
-    <div className="col-span-1 h-[84%]">
+    <div className="col-span-1 pt-20 pb-20">
         <li className="list-none py-1"> {drinks.map((drink) => (
-            <ul key={drink.id} className="flex flex-col-2 space-x-4 justify-between bg-white h-30 rounded-xl shadow-xl p-3 my-4 mx-4 lg:mx-72 overflow-hidden">
+            <ul key={drink.id} className="flex flex-col-2 space-x-4 justify-between bg-[white] h-30 rounded-xl shadow-xl p-3 my-4 mx-4 lg:mx-72 overflow-hidden">
                 <div className="flex-1">
                 <h1>{drink.name}</h1>
-                <div className="flex">
-                    <Image src={lightningIcon} alt="Star Icon" width={20} height={20} />
-                    <h2>(2)</h2>
-                </div>
                 <div className="flex">              
                     <h2>Taste: </h2>
                     <Rating className="flex" count={6} value={drink.taste} />
@@ -36,6 +32,9 @@ function homeRatingPage() {
                 <div className="flex">              
                     <h2>Look: </h2>
                     <Rating className="flex" count={6} value={drink.look} />
+                </div>
+                <div className="flex">
+                    <h2>Ratings: ( 2 )</h2>
                 </div>
                 </div>
                 <div className="flex-2 justify-end items-center h-full">

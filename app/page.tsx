@@ -1,21 +1,18 @@
 "use client"
-import BottomNavBar from "./bottomNavBar";
-import Header from "./header";
+import BottomNavBar from "./navigation/bottomNavBar";
+import Header from "./navigation/header";
 import HomeRatingPage from "./homeRatingPage";
+import { AuthProvider } from "./login/authProvider";
 
 export default function Home() {
 
   return (
-    <div className="flex flex-col h-screen">
-      <div className="h-[8%]">
-        <Header />
+    <AuthProvider>
+      <div className="flex flex-col h-screen">
+          <Header />
+          <HomeRatingPage />
+          <BottomNavBar />
       </div>
-      <div className="h-[84%] flex-1 overflow-y-auto">
-        <HomeRatingPage />
-      </div>
-      <div className="h-[8%]">
-        <BottomNavBar />
-      </div>
-    </div>
+    </AuthProvider>
   );
 }
