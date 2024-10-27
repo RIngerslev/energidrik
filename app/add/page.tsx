@@ -63,14 +63,14 @@ function addenergidrik() {
   return (
     <div className='flex flex-col h-screen'>
       <Header />
-      <div className="flex flex-col items-center justify-center h-[84%] mt-10">
+      <div className="flex flex-col items-center justify-center mt-24">
         <div className="flex flex-col space-y-4">
           <input
             list='brands'
             type="text"
             name="brand"
             placeholder="Brand"
-            value={name}
+            value={brand}
             onChange={(e) => setBrand(e.target.value)}
             className="p-2 border border-gray-300 rounded"
             required
