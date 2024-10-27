@@ -1,8 +1,14 @@
 import React from 'react'
+import BottomNavBar from '../navigation/bottomNavBar'
+import Header from '../navigation/header'
 
 function page() {
   return (
-    <div>Kommer snart</div>
+    <div>
+      <Header />
+      <div>Kommer snart</div>
+      <BottomNavBar />
+    </div>
   )
 }
 
