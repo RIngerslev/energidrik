@@ -1,13 +1,12 @@
 "use client"
+import { getDownloadURL, ref, uploadBytes } from 'firebase/storage';
+import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
-import Header from '../navigation/header';
-import { storage } from '../firebase/firebaseConfig';
-import Image from 'next/image';
-import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { addDataFirebase } from '../firebase/firebase';
+import { storage } from '../firebase/firebaseConfig';
 import BottomNavBar from '../navigation/bottomNavBar';
-import LogoutButton from '../login/register/logoutButton';
+import Header from '../navigation/header';
 
 function addenergidrik() {
   const [name, setName] = useState('');

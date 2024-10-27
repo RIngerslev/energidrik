@@ -36,9 +36,9 @@ const BottomNavBar = () => {
 
         <div
           className="text-center text-gray-600 hover:text-blue-500 cursor-pointer"
-          onClick={() => router.push('/favorites')}
+          onClick={() => router.push('/search')}
         >
-          <Image src={favoritesIcon} alt="Search Icon" width={25} height={25} />
+          <Image src={favoritesIcon} alt="Favorites Icon" width={25} height={25} />
         </div>
         <div
           className="text-center text-gray-600 hover:text-blue-500 cursor-pointer"
