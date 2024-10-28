@@ -8,7 +8,7 @@ const Header = () => {
   const user = auth.currentUser;
   
   return (
-    <header className="fixed h-20 top-0 left-0 right-0 flex justify-between items-center p-4 px-10 bg-[#111D4A] shadow border-b-2 border-gray-200">
+    <header className="fixed h-24 top-0 left-0 right-0 flex justify-between items-center p-4 px-10 bg-[#111D4A] shadow border-b-2 border-gray-200">
       <div className="logo">
         <button className='clickEffect'>
           <Link href="/" className='text-2xl font-semibold text-[#111D4A] bg-white px-2 py-1 rounded'>

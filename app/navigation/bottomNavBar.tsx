@@ -9,7 +9,7 @@ const BottomNavBar = () => {
   const router = useRouter();
 
   return (
-    <div className="fixed h-20 bottom-0 left-0 right-0 z-10 bg-[#111D4A] shadow-lg flex justify-between items-center px-6 border-t-2 border-gray-200">
+    <div className="fixed h-24 bottom-0 left-0 right-0 z-10 bg-[#111D4A] shadow-lg flex justify-between items-center px-6 border-t-2 border-gray-200">
       <div className="flex justify-around w-full">
         <div
           className="text-center text-gray-600 hover:text-blue-500 cursor-pointer"

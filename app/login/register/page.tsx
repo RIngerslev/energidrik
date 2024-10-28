@@ -6,6 +6,7 @@ import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { useRouter } from 'next/navigation';
 import BottomNavBar from '@/app/navigation/bottomNavBar';
 import Header from '@/app/navigation/header';
+import Link from 'next/link';
 
 const Register = () => {
   const [email, setEmail] = useState('');
@@ -87,7 +88,7 @@ const Register = () => {
           </form>
           {error && <p style={{ color: 'red' }}>{error}</p>}
           <p>
-            Already have an account? <a href="/login" className='text-blue-500 hover:text-blue-700'>Login here</a>
+            Already have an account? <Link href="/login" className='text-blue-500 hover:text-blue-700'>Login here</Link>
           </p>
         </div>
       </div>
