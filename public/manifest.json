@@ -1,7 +1,7 @@
 {
-    "name": "PWA with Next 14",
-    "short_name": "NextPWA",
-    "description": "PWA application with Next 14",
+    "name": "FuelScore",
+    "short_name": "FS",
+    "description": "App to rate energy & soda drinks",
     "start_url": "https://ringerslev.github.io/energidrik/",
     "display": "standalone",
     "background_color": "#ffffff",

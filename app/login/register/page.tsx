@@ -61,6 +61,7 @@ const Register = () => {
         <div className="flex flex-col space-y-4">
           <h1>Create Account</h1>
           <form onSubmit={handleRegister}>
+            <div className="flex flex-col space-y-4">
             <input
               type="email"
               placeholder="Email"
@@ -81,15 +82,15 @@ const Register = () => {
               className="p-2 border border-gray-300 rounded"
             />
             <p>Password Strength: {passwordStrength}</p>
-            <button type="submit">Sign Up</button>
+            <button type="submit" className='p-2 bg-green-500 text-white rounded hover:bg-green-600'>Sign Up</button>
+            </div>
           </form>
           {error && <p style={{ color: 'red' }}>{error}</p>}
           <p>
-            Already have an account? <a href="/login">Login here</a>
+            Already have an account? <a href="/login" className='text-blue-500 hover:text-blue-700'>Login here</a>
           </p>
         </div>
       </div>
-      <BottomNavBar />
     </div>
   );
 };

@@ -4,6 +4,7 @@ import { useRouter } from 'next/navigation';  // Use this for client-side naviga
 import Link from 'next/link';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../firebase/firebaseConfig';  // Adjust the path to your firebaseConfig
+import Header from '../navigation/header';
 
 function LoginPage() {
   const [email, setEmail] = useState('');
@@ -39,32 +40,39 @@ function LoginPage() {
   };
 
   return (
-    <div>
-      <h1>Login</h1>
-      <form onSubmit={handleLogin}>
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-        <button type="submit">Login</button>
-      </form>
+    <div className='flex flex-col h-screen'>
+      <Header />
+      <div className="flex flex-col items-center justify-center pt-20 mt-10">
+        <h1>Login</h1>
+        <form onSubmit={handleLogin}>
+          <div className="flex flex-col space-y-4 mt-4">
+            <input
+              type="email"
+              placeholder="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              className="p-2 border border-gray-300 rounded"
+            />
+            <input
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+              className="p-2 border border-gray-300 rounded"
+            />
+            <button type="submit" className='p-2 bg-green-500 text-white rounded hover:bg-green-600'>Login</button>
+            </div>
+        </form>
 
-      {/* Display error message if there is one */}
-      {error && <p style={{ color: 'red' }}>{error}</p>}
+        {/* Display error message if there is one */}
+        {error && <p style={{ color: 'red' }}>{error}</p>}
 
-      <p>
-        Don't have an account? <Link href="/register">Create one here</Link>
-      </p>
+        <p className='mt-4'>
+          Don't have an account? <Link href="/login/register" className='text-blue-500 hover:text-blue-700'>Create one here</Link>
+        </p>
+      </div>
     </div>
   );
 }
