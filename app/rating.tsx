@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 interface RatingProps {
   className?: string;
-  count: number;
+  count?: number;
   value: number;
   color?: string;
   hoverColor?: string;
@@ -65,7 +65,7 @@ const EmptyStar = ({ size = 24, color = "#000000" }: IconProps) => {
 
 const Rating: React.FC<RatingProps> = ({
   className,
-  count,
+  count = 6,
   value,
   color = "#ffd700",
   hoverColor = "#ffc107",
