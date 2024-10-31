@@ -24,16 +24,15 @@ function homeRatingPage() {
         <li className="list-none py-1"> {drinks.map((drink) => (
             <ul key={drink.id} className="flex flex-col-2 space-x-4 justify-between bg-[white] h-30 rounded-xl shadow-xl p-3 my-4 mx-4 lg:mx-72 overflow-hidden">
                 <div className="flex-1">
-                <div className="flex mb-2">
-                  <h1 className="mr-2 bg-green-700 text-white rounded-xl px-2">{drink.brand}</h1>
-                  <h1>{drink.name}</h1>
+                <div className="flex mb-1 font-semibold">
+                  <h2>{drink.name}</h2>
+                </div>
+                <div className="flex mb-1">
+                    <h2 className="mr-2 bg-green-700 text-white rounded-lg px-2">{drink.brand}</h2>
+                    <h2>Ratings: ( {drink.amountRating} )</h2>
                 </div>
                 <div className="flex ml-0.5">              
-                    <h2>Rating: </h2>
                     <Rating className="flex" count={6} value={drink.rating} />
-                </div>
-                <div className="flex ml-0.5">
-                    <h2>Ratings: ( {drink.amountRating} )</h2>
                 </div>
                 </div>
                 <div className="flex-2 justify-end items-center h-full">
