@@ -8,26 +8,26 @@ import Rating from "../../rating"; // Adjust the import if necessary
 import Link from "next/link";
 
 
-export default function ProductPage ({ params }: { params: { id: string } }) {
+export default function ProductPage (pageProps: any) {
 
     const [drink, setDrink] = useState<any>(null);
     const [rating, setRating] = useState<number>(0);
 
     useEffect(() => {
         const fetchDrink = async () => {
-            console.log(params.id);
-            if (params.id) {
-                const drinkData = await fetchSingleDocumentFirebase("drink", params.id); // Fetch the specific drink using the id
+            console.log(pageProps.id);
+            if (pageProps.id) {
+                const drinkData = await fetchSingleDocumentFirebase("drink", pageProps.id); // Fetch the specific drink using the id
                 setDrink(drinkData);
             }
         };
         fetchDrink();
-    }, [params.id]);
+    }, [pageProps.id]);
     
     const updateDrink = async (rating: number ) => {
         try {
-          await updateProductFirebase("drink", params.id, rating);
-          console.log("Drink updated with ID: ", params.id);
+          await updateProductFirebase("drink", pageProps.id, rating);
+          console.log("Drink updated with ID: ", pageProps.id);
         } catch (error) {
           console.error("Error updating drink: ", error);
         }
