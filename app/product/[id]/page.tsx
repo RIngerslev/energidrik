@@ -3,9 +3,10 @@
 "use client";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
-import { fetchSingleDocumentFirebase, updateDataFirebase } from "../../firebase/firebase"; // Adjust the path if necessary
+import { fetchSingleDocumentFirebase, updateProductFirebase } from "../../firebase/firebase"; // Adjust the path if necessary
 import Rating from "../../rating"; // Adjust the import if necessary
 import Link from "next/link";
+
 
 export default function ProductPage ({ params }: { params: { id: string } }) {
 
@@ -25,7 +26,7 @@ export default function ProductPage ({ params }: { params: { id: string } }) {
     
     const updateDrink = async (rating: number ) => {
         try {
-          //await updateDataFirebase("drink", params.id,);
+          await updateProductFirebase("drink", params.id, rating);
           console.log("Drink updated with ID: ", params.id);
         } catch (error) {
           console.error("Error updating drink: ", error);
@@ -46,7 +47,7 @@ export default function ProductPage ({ params }: { params: { id: string } }) {
             <h2 className="mt-4 font-semibold">{drink.brand}</h2>
             <h1 className="text-2xl font-bold">{drink.name}</h1>
             <div className="flex items-center mt-2">
-                <Rating className="flex" count={6} value={drink.rating} />
+                <Rating className="flex" count={6}   value={drink.rating / (drink.amountRating || 1)} />
                 <span className="ml-2">Ratings: ({drink.amountRating})</span>
             </div>
             <Image

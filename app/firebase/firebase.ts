@@ -45,10 +45,10 @@ export const addDataFirebase = async (collectionName: string, data: any) => {
 };
 
 // Update data
-export const updateDataFirebase = async (collectionName: string, docId: string, data: any) => {
+export const updateProductFirebase = async (collectionName: string, docId: string, rating: number) => {
   try {
     const docRef = doc(db, collectionName, docId);
-    await updateDoc(docRef, data);
+    await updateDoc(docRef, { rating: increment(rating), amountRating: increment(1) });
     console.log("Document updated with ID: ", docId);
   } catch (error) {
     console.error("Error updating document: ", error);

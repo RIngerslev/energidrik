@@ -33,7 +33,7 @@ function homeRatingPage() {
                   <h2>Ratings: ( {drink.amountRating} )</h2>
               </div>
               <div className="flex ml-0.5">              
-                  <Rating className="flex" count={6} value={drink.rating} />
+                  <Rating className="flex" count={6} value={drink.rating / (drink.amountRating || 1)} />
               </div>
               </div>
               <div className="flex-2 justify-end items-center h-full">
