@@ -7,27 +7,28 @@ import { fetchSingleDocumentFirebase, updateProductFirebase } from "../../fireba
 import Rating from "../../rating"; // Adjust the import if necessary
 import Link from "next/link";
 
+export async function generateStaticParams() {}
 
-export default function ProductPage (pageProps: any) {
+export default function ProductPage ({ params }: { params: { id: string } }) {
 
     const [drink, setDrink] = useState<any>(null);
     const [rating, setRating] = useState<number>(0);
 
     useEffect(() => {
         const fetchDrink = async () => {
-            console.log(pageProps.id);
-            if (pageProps.id) {
-                const drinkData = await fetchSingleDocumentFirebase("drink", pageProps.id); // Fetch the specific drink using the id
+            console.log(params.id);
+            if (params.id) {
+                const drinkData = await fetchSingleDocumentFirebase("drink", params.id); // Fetch the specific drink using the id
                 setDrink(drinkData);
             }
         };
         fetchDrink();
-    }, [pageProps.id]);
+    }, [params.id]);
     
     const updateDrink = async (rating: number ) => {
         try {
-          await updateProductFirebase("drink", pageProps.id, rating);
-          console.log("Drink updated with ID: ", pageProps.id);
+          await updateProductFirebase("drink", params.id, rating);
+          console.log("Drink updated with ID: ", params.id);
         } catch (error) {
           console.error("Error updating drink: ", error);
         }
@@ -47,7 +48,7 @@ export default function ProductPage (pageProps: any) {
             <h2 className="mt-4 font-semibold">{drink.brand}</h2>
             <h1 className="text-2xl font-bold">{drink.name}</h1>
             <div className="flex items-center mt-2">
-                <Rating className="flex" count={6}   value={drink.rating / (drink.amountRating || 1)} />
+                <Rating className="flex" count={6} value={drink.rating/drink.amountRating} />
                 <span className="ml-2">Ratings: ({drink.amountRating})</span>
             </div>
             <Image
