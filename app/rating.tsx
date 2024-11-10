@@ -1,5 +1,5 @@
+"use client";
 import React, { useState } from "react";
-
 interface RatingProps {
   className?: string;
   count?: number;

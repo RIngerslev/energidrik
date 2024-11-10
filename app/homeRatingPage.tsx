@@ -22,7 +22,7 @@ function homeRatingPage() {
   return (
     <div className="col-span-1 pt-24 pb-24">
         <li className="list-none py-1"> {drinks.map((drink) => (
-          <Link href={`/product/${drink.id}`}>
+          <Link key={drink.id} href={`/product/${drink.id}`}>
             <ul key={drink.id} className="flex flex-col-2 space-x-4 justify-between bg-[white] h-30 rounded-xl shadow-xl p-3 my-4 mx-4 lg:mx-72 overflow-hidden">
               <div className="flex-1">
               <div className="flex mb-1 font-semibold">

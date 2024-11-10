@@ -1,3 +1,4 @@
+
 "use client";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
@@ -5,7 +6,7 @@ import { fetchSingleDocumentFirebase, updateProductFirebase } from "../../fireba
 import Rating from "../../rating"; // Adjust the import if necessary
 import Link from "next/link";
 
-export default function Product(id: string) {
+export default function Product (id: string) {
 
     const [drink, setDrink] = useState<any>(null);
     const [rating, setRating] = useState<number>(0);
