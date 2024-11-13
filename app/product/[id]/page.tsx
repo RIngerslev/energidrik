@@ -1,5 +1,5 @@
 // pages/product/[id].tsx
-
+"server";
 import Image from "next/image";
 import Link from "next/link";
 import { fetchSingleDocumentFirebase } from "../../firebase/firebase"; // Adjust the path if necessary
