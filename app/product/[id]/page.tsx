@@ -9,10 +9,10 @@ export async function generateStaticParams() {
     }))
   }
 
-export default async function Product({ params }: { params: { id: string } }) {
-    const { id } = params
+export default async function Product({ params }: { params: Promise<{ id: string }> }) {
+    const { id } = await params
 
     return (
-        <div>{params.id}</div>
+        <div>{id}</div>
     );
 }
