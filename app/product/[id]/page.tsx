@@ -46,7 +46,7 @@ export default async function Product({ params }: { params: Promise<{ id: string
       />
       <h1 className="text-2xl font-bold">Your vote</h1>
       <Suspense>
-        <RatingComponent id={drink.id}/>
+        <RatingComponent id={id}/>
       </Suspense>
   </div>  
     );

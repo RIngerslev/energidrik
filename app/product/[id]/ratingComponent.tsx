@@ -3,7 +3,7 @@ import { updateProductFirebase } from '@/app/firebase/firebase';
 import Rating from '@/app/rating'
 import React, { useState } from 'react'
 
-export default function RatingComponent(id: string) {
+export default function RatingComponent(id: any) {
     const [rating, setRating] = useState<number>(0);
 
     const updateDrink = async (rating: number) => {
