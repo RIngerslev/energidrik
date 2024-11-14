@@ -1,31 +1,30 @@
+'use client'
+import React, { useEffect, useState } from 'react'
+import { fetchSingleDocumentFirebase, updateProductFirebase } from './firebase/firebase';
+import Link from 'next/link';
+import Rating from './rating';
+import Image from 'next/image';
 
-"use client";
-import Image from "next/image";
-import React, { useEffect, useState } from "react";
-import { fetchSingleDocumentFirebase, updateProductFirebase } from "../../firebase/firebase"; // Adjust the path if necessary
-import Rating from "../../rating"; // Adjust the import if necessary
-import Link from "next/link";
-
-export default function Product (id: string) {
+export default function Product(props: {id: string}) {
 
     const [drink, setDrink] = useState<any>(null);
     const [rating, setRating] = useState<number>(0);
 
     useEffect(() => {
         const fetchDrink = async () => {
-            console.log(id);
-            if (id) {
-                const drinkData = await fetchSingleDocumentFirebase("drink", id); // Fetch the specific drink using the id
+            console.log(props.id);
+            if (props.id) {
+                const drinkData = await fetchSingleDocumentFirebase("drink", props.id); // Fetch the specific drink using the id
                 setDrink(drinkData);
             }
         };
         fetchDrink();
-    }, [id]);
+    }, [props.id]);
     
     const updateDrink = async (rating: number ) => {
         try {
-          await updateProductFirebase("drink", id, rating);
-          console.log("Drink updated with ID: ", id);
+          await updateProductFirebase("drink", props.id, rating);
+          console.log("Drink updated with ID: ", props.id);
         } catch (error) {
           console.error("Error updating drink: ", error);
         }
@@ -62,4 +61,4 @@ export default function Product (id: string) {
             </button>
         </div>
     );
-};
+}
