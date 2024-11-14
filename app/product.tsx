@@ -5,26 +5,26 @@ import Link from 'next/link';
 import Rating from './rating';
 import Image from 'next/image';
 
-export default function Product(props: {id: string}) {
+export default function Product123(id: any) {
 
     const [drink, setDrink] = useState<any>(null);
     const [rating, setRating] = useState<number>(0);
 
     useEffect(() => {
         const fetchDrink = async () => {
-            console.log(props.id);
-            if (props.id) {
-                const drinkData = await fetchSingleDocumentFirebase("drink", props.id); // Fetch the specific drink using the id
+            console.log(id);
+            if (id) {
+                const drinkData = await fetchSingleDocumentFirebase("drink", id); // Fetch the specific drink using the id
                 setDrink(drinkData);
             }
         };
         fetchDrink();
-    }, [props.id]);
+    }, [id]);
     
     const updateDrink = async (rating: number ) => {
         try {
-          await updateProductFirebase("drink", props.id, rating);
-          console.log("Drink updated with ID: ", props.id);
+          await updateProductFirebase("drink", id, rating);
+          console.log("Drink updated with ID: ", id);
         } catch (error) {
           console.error("Error updating drink: ", error);
         }
