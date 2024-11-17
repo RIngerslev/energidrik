@@ -48,7 +48,7 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
       <h1 className="text-2xl font-bold">{drink.name}</h1>
       <div className="flex items-center mt-2">
         <Rating className="flex" count={6} value={drink.rating / (drink.amountRating || 1)} />
-        <span className="ml-2">Ratings: ({drink.amountRating})</span>
+        <span className="ml-2">( {drink.amountRating} )</span>
       </div>
       <Image
         src={drink.image}

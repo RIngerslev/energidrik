@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react'
 import { fetchDataFirebase } from './firebase/firebase';
 import Rating from "./rating";
 import Link from "next/link";
+import usersIcon from "../public/usersIcon.svg"
 
 function homeRatingPage() {
 
@@ -30,7 +31,7 @@ function homeRatingPage() {
               </div>
               <div className="flex mb-1">
                   <h2 className="mr-2 bg-green-700 text-white rounded-lg px-2">{drink.brand}</h2>
-                  <h2>Ratings: ( {drink.amountRating} )</h2>
+                  <h2 className="mr-1">( {drink.amountRating} )</h2>
               </div>
               <div className="flex ml-0.5">              
                   <Rating className="flex" count={6} value={drink.rating / (drink.amountRating || 1)} />

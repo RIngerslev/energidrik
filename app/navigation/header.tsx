@@ -20,7 +20,7 @@ const Header = () => {
         <div>
           <button className="text-2xl font-semibold text-white clickEffect">
             <Link href="/profile">
-              <Image src={profileIcon} alt="Profile Icon" width={25} height={25} />
+              <Image src={profileIcon} alt="Profile Icon" width={35} height={35} />
             </Link>
           </button>
         </div>

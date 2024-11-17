@@ -13,8 +13,6 @@ function addenergidrik() {
   const [name, setName] = useState('');
   const [brand, setBrand] = useState('');
   const [rating, setRating] = React.useState(0);
-  const [avg, setAvg] = useState(0);
-  const [yourRating, setYourRating] = useState(0);
   const [amountRating] = useState(1);
 
   const [file, setFile] = useState<File | null>(null);
@@ -33,11 +31,6 @@ function addenergidrik() {
       setDisabledBtn(true)
     }
   }), [brand, name, rating, uploadedURL]
-
-  useEffect(() => {
-    setAvg(rating);
-    setYourRating(rating);
-  }, [rating]);
     
 
 
@@ -68,7 +61,7 @@ function addenergidrik() {
 
     console.log(brand, name, rating, uploadedURL);
     try {
-      await addDataFirebase("drink", { brand, name, avg, amountRating, yourRating, rating, image: uploadedURL });
+      await addDataFirebase("drink", { brand, name, amountRating, rating, image: uploadedURL });
     } catch (error) {
       console.error("Error adding data to Firebase:", error);
       // You can also add additional error handling logic here, such as displaying an error message to the user
