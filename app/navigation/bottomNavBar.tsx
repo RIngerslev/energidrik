@@ -16,13 +16,13 @@ const BottomNavBar = () => {
           className="text-center text-gray-600 hover:text-blue-500 cursor-pointer mt-4"
           onClick={() => router.push('/')}
         >
-          <Image src={homeIcon} alt="Home Icon" width={35} height={35} />
+          <Image src={homeIcon} alt="Home Icon" width={30} height={30} />
         </div>
         <div
           className="text-center text-gray-600 hover:text-blue-500 cursor-pointer mt-4"
           onClick={() => router.push('/search')}
         >
-          <Image src={searchIcon} alt="Search Icon" width={35} height={35} />
+          <Image src={searchIcon} alt="Search Icon" width={30} height={30} />
         </div>
 
         {/* Center button with plus icon */}
@@ -39,14 +39,14 @@ const BottomNavBar = () => {
           className="text-center text-gray-600 hover:text-blue-500 cursor-pointer mt-4"
           onClick={() => router.push('/search')}
         >
-          <Image src={favoritesIcon} alt="Favorites Icon" width={35} height={35} />
+          <Image src={favoritesIcon} alt="Favorites Icon" width={30} height={30} />
         </div>
 
         <div
           className="text-center text-gray-600 hover:text-blue-500 cursor-pointer mt-4"
           onClick={() => router.push('/search')}
         >
-          <Image src={settingsIcon} alt="Favorites Icon" width={35} height={35} />
+          <Image src={settingsIcon} alt="Favorites Icon" width={30} height={30} />
         </div>
 
       </div>
