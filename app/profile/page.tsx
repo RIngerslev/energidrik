@@ -7,7 +7,7 @@ function page() {
   return (
     <div>
         <Header />
-        <div className='flex justify-center flex-col items-center pt-24'>
+        <div className='flex justify-center items-center flex-col pt-40'>
             <h1>Profile</h1>
             <LogoutButton />
         </div>

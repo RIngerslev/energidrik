@@ -10,7 +10,7 @@ const BottomNavBar = () => {
   const router = useRouter();
 
   return (
-    <div className="fixed h-24 bottom-0 left-0 right-0 z-10 bg-[#111D4A] shadow-lg flex justify-between  px-6 border-t-2 border-gray-200">
+    <div className="fixed h-20 bottom-0 left-0 right-0 z-10 bg-[#111D4A] shadow-lg flex justify-between  px-6 border-t-2 border-gray-200">
       <div className="flex justify-around w-full">
         <div
           className="text-center text-gray-600 hover:text-blue-500 cursor-pointer mt-4"
@@ -28,7 +28,7 @@ const BottomNavBar = () => {
         {/* Center button with plus icon */}
         <div className="relative">
           <div
-            className="absolute w-16 h-16 border-2 bg-white text-black text-xl font-bold rounded-full flex items-center justify-center bottom-16 left-1/2 transform -translate-x-1/2 shadow-lg cursor-pointer hover:bg-gray-300"
+            className="absolute w-16 h-16 border-2 bg-white text-black text-xl font-bold rounded-full flex items-center justify-center bottom-12 left-1/2 transform -translate-x-1/2 shadow-lg cursor-pointer hover:bg-gray-300"
             onClick={() => router.push('/add')}
           >
               +
