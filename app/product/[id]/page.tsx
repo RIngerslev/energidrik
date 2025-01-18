@@ -4,10 +4,11 @@ import React, { use, useEffect, useState } from "react";
 import { fetchSingleDocumentFirebase, updateProductFirebase } from "../../firebase/firebase"; // Adjust the path if necessary
 import Rating from "../../rating"; // Adjust the import if necessary
 import Link from "next/link";
-import { redirect } from "next/dist/server/api-utils";
+import { useRouter } from "next/navigation";
 export default function ProductPage({ params }: { params: Promise<{ id: string }> }) {
   const [drink, setDrink] = useState<any>(null);
   const [rating, setRating] = useState<number>(0);
+  const router = useRouter();
 
   const { id } = use(params);
 
@@ -28,6 +29,7 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
       console.log("Drink updated with ID: ", id);
       const updatedDrinkData = await fetchSingleDocumentFirebase("drink", id);
       setDrink(updatedDrinkData);
+      router.push('/');
     } catch (error) {
       console.error("Error updating drink: ", error);
     }

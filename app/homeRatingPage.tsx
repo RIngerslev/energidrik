@@ -15,7 +15,9 @@ function homeRatingPage() {
   useEffect(() => {
     const fetchData = async () => {
       const drinkData = await fetchDataFirebase("drink");
-      setDrinks(drinkData); // Opdater drinks state
+       // Sort drinks based on average rating
+       const sortedDrinks = drinkData.sort((a, b) => (b.rating / (b.amountRating || 1)) - (a.rating / (a.amountRating || 1)));
+      setDrinks(sortedDrinks); // Opdater drinks state
     };
     fetchData();
   }, []);
